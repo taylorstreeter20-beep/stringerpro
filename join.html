@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Test Stringer Pro</title>
 <meta property="og:title" content="Stringer Pro — early access">
-<meta property="og:description" content="Every public fishing water in Illinois, Iowa + Missouri. Free during early access — two taps and you're on the water.">
+<meta property="og:description" content="Every public fishing water in Illinois, Iowa + Missouri. Free during early access.">
 <meta property="og:image" content="https://www.stringerproapp.com/assets/og-card.jpg?v=3states">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,14 +18,18 @@
  body{background:var(--parch);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
    min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
  .card{max-width:460px;width:100%;text-align:center;}
- .badge{font-size:54px;margin-bottom:6px}
+ .badge{width:84px;height:84px;margin-bottom:8px}
  h1{font-family:Georgia,"Times New Roman",serif;color:var(--green);font-size:32px;margin-bottom:6px}
- .tag{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;margin-bottom:26px}
+ .tag{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;margin-bottom:18px}
+ .intro{color:var(--mut);font-size:15px;line-height:1.5;margin-bottom:20px}
  .step{background:#fff;border:1px solid rgba(28,58,46,.12);border-radius:16px;padding:18px 20px;text-align:left;margin-bottom:14px;}
+ .step.key{border:2px solid var(--teal)}
  .step .n{display:inline-block;background:var(--green);color:#fff;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;font-weight:700;margin-right:8px;font-size:14px;vertical-align:middle}
  .step h2{font-size:17px;color:var(--green);display:inline;vertical-align:middle}
  .step p{color:var(--mut);font-size:14px;margin-top:10px;line-height:1.5}
- .btn{display:block;background:var(--green);color:#fff;text-decoration:none;font-weight:700;
+ .step p b{color:var(--ink)}
+ .email{display:block;text-align:center;font-weight:700;font-size:17px;color:var(--teal);background:#EEF5F7;border-radius:12px;padding:12px;margin-top:10px;word-break:break-all;user-select:all}
+ .btn{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;
    font-size:18px;padding:16px;border-radius:14px;margin-top:12px;box-shadow:0 6px 16px rgba(28,58,46,.22)}
  .btn.store{background:#fff;color:var(--green);border:1.5px solid var(--green);box-shadow:none;font-size:15px;margin-top:8px}
  .foot{color:var(--mut);font-size:12px;margin-top:22px;line-height:1.6}
@@ -34,24 +38,38 @@
 </head>
 <body>
  <div class="card">
-   <div class="badge">🎣</div>
+   <img class="badge" src="assets/badge.png" alt="The Midwestern Angler">
    <h1>Stringer Pro</h1>
    <div class="tag">Beta Test &middot; The Midwestern Angler</div>
+   <p class="intro">Early access is free. Testers are added by email for now, so start with step 1. It only takes a minute.</p>
+
+   <div class="step key">
+     <span class="n">1</span><h2>Send us your email</h2>
+     <p>Email us to be added to early access. Send it from the address you want to use, and tell us whether you have an <b>iPhone</b> or <b>Android</b>.</p>
+     <a class="btn" href="mailto:stringerpro1@gmail.com?subject=Stringer%20Pro%20early%20access&amp;body=Please%20add%20me%20to%20Stringer%20Pro%20early%20access.%0A%0AMy%20phone%20(iPhone%20or%20Android)%3A%20">✉️ Email to join</a>
+     <p>Button not working? Send an email to:</p>
+     <span class="email">stringerpro1@gmail.com</span>
+   </div>
 
    <div class="step">
-     <span class="n">1</span><h2>Install Expo Go (free)</h2>
-     <p>During testing, Stringer Pro runs inside a free app called Expo Go. Install it first:</p>
+     <span class="n">2</span><h2>Accept your invite</h2>
+     <p>We'll send you an invitation email from <b>Expo</b>, the service that runs our test version, usually within a day. Tap <b>Accept</b> and create a free Expo account <b>using that same email address</b>.</p>
+   </div>
+
+   <div class="step">
+     <span class="n">3</span><h2>Install Expo Go (free)</h2>
+     <p>During testing, Stringer Pro runs inside the free Expo Go app. Install it, then open it and <b>sign in with the Expo account</b> from step 2.</p>
      <a class="btn store" href="https://apps.apple.com/app/expo-go/id982107779">Get Expo Go &mdash; iPhone</a>
      <a class="btn store" href="https://play.google.com/store/apps/details?id=host.exp.exponent">Get Expo Go &mdash; Android</a>
    </div>
 
    <div class="step">
-     <span class="n">2</span><h2>Open Stringer Pro</h2>
-     <p>Once Expo Go has finished installing, tap the button below. The app opens right up.</p>
+     <span class="n">4</span><h2>Open Stringer Pro</h2>
+     <p>Once you're signed in to Expo Go, tap the button below and the app opens right up.</p>
      <a class="btn" href="exp://u.expo.dev/db044b2e-c386-452a-8963-e25ec481977e?channel-name=preview&amp;runtime-version=1.0.0">🎣 Open Stringer Pro</a>
    </div>
 
-   <p class="foot">If tapping "Open Stringer Pro" does nothing, make sure Expo Go finished installing, then try again.<br>Questions or feedback? stringerpro1@gmail.com</p>
+   <p class="foot">Seeing "not viewable in Expo Go"? Your invite hasn't been accepted yet, or Expo Go is signed in with a different account than the one you were invited with.<br>Questions or feedback? <a href="mailto:stringerpro1@gmail.com">stringerpro1@gmail.com</a></p>
  </div>
 <script data-goatcounter="https://stringerpro.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
