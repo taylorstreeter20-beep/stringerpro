@@ -22,17 +22,21 @@
  h1{font-family:Georgia,"Times New Roman",serif;color:var(--green);font-size:32px;margin-bottom:6px}
  .tag{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;margin-bottom:18px}
  .intro{color:var(--mut);font-size:15px;line-height:1.5;margin-bottom:20px}
- .step{background:#fff;border:1px solid rgba(28,58,46,.12);border-radius:16px;padding:18px 20px;text-align:left;margin-bottom:14px;}
- .step.key{border:2px solid var(--teal)}
- .step .n{display:inline-block;background:var(--green);color:#fff;width:26px;height:26px;border-radius:50%;text-align:center;line-height:26px;font-weight:700;margin-right:8px;font-size:14px;vertical-align:middle}
- .step h2{font-size:17px;color:var(--green);display:inline;vertical-align:middle}
- .step p{color:var(--mut);font-size:14px;margin-top:10px;line-height:1.5}
- .step p b{color:var(--ink)}
- .email{display:block;text-align:center;font-weight:700;font-size:17px;color:var(--teal);background:#EEF5F7;border-radius:12px;padding:12px;margin-top:10px;word-break:break-all;user-select:all}
+ .phone{background:#fff;border:1px solid rgba(28,58,46,.12);border-radius:18px;padding:20px;text-align:left;margin-bottom:18px;}
+ .phone.mine{border:2px solid var(--teal)}
+ .phone h2{font-family:Georgia,"Times New Roman",serif;font-size:22px;color:var(--green)}
+ .phone .sub{color:var(--mut);font-size:14px;margin-top:6px;line-height:1.5}
+ .step{border-top:1px solid rgba(28,58,46,.1);padding-top:14px;margin-top:14px}
+ .step .n{display:inline-block;background:var(--green);color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-weight:700;margin-right:8px;font-size:13px;vertical-align:middle}
+ .step h3{font-size:16px;color:var(--green);display:inline;vertical-align:middle}
+ .step p,.phone ol{color:var(--mut);font-size:14px;margin-top:8px;line-height:1.5}
+ .phone ol{margin-left:20px}
+ .step p b,.phone ol b{color:var(--ink)}
+ .email{display:block;text-align:center;font-weight:700;font-size:16px;color:var(--teal);background:#EEF5F7;border-radius:12px;padding:10px;margin-top:8px;word-break:break-all;user-select:all}
  .btn{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;
    font-size:18px;padding:16px;border-radius:14px;margin-top:12px;box-shadow:0 6px 16px rgba(28,58,46,.22)}
- .btn.store{background:#fff;color:var(--green);border:1.5px solid var(--green);box-shadow:none;font-size:15px;margin-top:8px}
- .foot{color:var(--mut);font-size:12px;margin-top:22px;line-height:1.6}
+ .btn.store{background:#fff;color:var(--green);border:1.5px solid var(--green);box-shadow:none;font-size:15px;margin-top:10px}
+ .foot{color:var(--mut);font-size:12px;margin-top:6px;line-height:1.6}
  a{color:var(--teal)}
 </style>
 </head>
@@ -41,36 +45,65 @@
    <img class="badge" src="assets/badge.png" alt="The Midwestern Angler">
    <h1>Stringer Pro</h1>
    <div class="tag">Beta Test &middot; The Midwestern Angler</div>
-   <p class="intro">Early access is free. Testers are added by email for now, so start with step 1. It only takes a minute.</p>
+   <p class="intro">Early access is free. Pick your phone below.</p>
 
-   <div class="step key">
-     <span class="n">1</span><h2>Send us your email</h2>
-     <p>Email us to be added to early access. Send it from the address you want to use, and tell us whether you have an <b>iPhone</b> or <b>Android</b>.</p>
-     <a class="btn" href="mailto:stringerpro1@gmail.com?subject=Stringer%20Pro%20early%20access&amp;body=Please%20add%20me%20to%20Stringer%20Pro%20early%20access.%0A%0AMy%20phone%20(iPhone%20or%20Android)%3A%20">✉️ Email to join</a>
-     <p>Button not working? Send an email to:</p>
-     <span class="email">stringerpro1@gmail.com</span>
+   <div class="phone" id="android">
+     <h2>📱 Android</h2>
+     <p class="sub">Install Stringer Pro directly — no sign-up, no invite, no extra apps.</p>
+     <a class="btn" href="https://expo.dev/artifacts/eas/7dGIdxLAt4_Oci1VkNrYrtFB1nnXtM6gEQJY3iN8QGA.apk">Download Stringer Pro for Android</a>
+     <ol>
+       <li>Tap the button to download (about 110 MB — Wi-Fi helps), then open the downloaded file.</li>
+       <li>If your phone asks, allow your browser to install apps.</li>
+       <li>If Google Play Protect warns about an unknown app, tap <b>More details &rarr; Install anyway</b>. That's normal for test apps that aren't in the Play Store yet.</li>
+       <li>Open Stringer Pro and sign up or sign in.</li>
+       <li>After the first launch, close the app fully and reopen it once to load the latest update.</li>
+     </ol>
    </div>
 
-   <div class="step">
-     <span class="n">2</span><h2>Accept your invite</h2>
-     <p>We'll send you an invitation email from <b>Expo</b>, the service that runs our test version, usually within a day. Tap <b>Accept</b> and create a free Expo account <b>using that same email address</b>.</p>
+   <div class="phone" id="iphone">
+     <h2>🍎 iPhone</h2>
+     <p class="sub">iPhone testers are added by email for now. It only takes a minute.</p>
+
+     <div class="step">
+       <span class="n">1</span><h3>Send us your email</h3>
+       <p>Email us to be added to early access, from the address you want to use.</p>
+       <a class="btn" href="mailto:stringerpro1@gmail.com?subject=Stringer%20Pro%20early%20access%20(iPhone)&amp;body=Please%20add%20me%20to%20Stringer%20Pro%20early%20access%20on%20my%20iPhone.">✉️ Email to join</a>
+       <p>Button not working? Send an email to:</p>
+       <span class="email">stringerpro1@gmail.com</span>
+     </div>
+
+     <div class="step">
+       <span class="n">2</span><h3>Accept your invite</h3>
+       <p>We'll send you an invitation email from <b>Expo</b>, the service that runs our test version, usually within a day. Tap <b>Accept</b> and create a free Expo account <b>using that same email address</b>.</p>
+     </div>
+
+     <div class="step">
+       <span class="n">3</span><h3>Install Expo Go and sign in</h3>
+       <p>Install the free Expo Go app, open it, and <b>sign in with the Expo account</b> from step 2.</p>
+       <a class="btn store" href="https://apps.apple.com/app/expo-go/id982107779">Get Expo Go for iPhone</a>
+     </div>
+
+     <div class="step">
+       <span class="n">4</span><h3>Open Stringer Pro</h3>
+       <p>Once you're signed in to Expo Go, tap the button below.</p>
+       <a class="btn" href="exp://u.expo.dev/db044b2e-c386-452a-8963-e25ec481977e?channel-name=preview&amp;runtime-version=1.0.0">🎣 Open Stringer Pro</a>
+       <p>Seeing "not viewable in Expo Go"? Your invite hasn't been accepted yet, or Expo Go is signed in with a different account than the one you were invited with.</p>
+     </div>
    </div>
 
-   <div class="step">
-     <span class="n">3</span><h2>Install Expo Go (free)</h2>
-     <p>During testing, Stringer Pro runs inside the free Expo Go app. Install it, then open it and <b>sign in with the Expo account</b> from step 2.</p>
-     <a class="btn store" href="https://apps.apple.com/app/expo-go/id982107779">Get Expo Go &mdash; iPhone</a>
-     <a class="btn store" href="https://play.google.com/store/apps/details?id=host.exp.exponent">Get Expo Go &mdash; Android</a>
-   </div>
-
-   <div class="step">
-     <span class="n">4</span><h2>Open Stringer Pro</h2>
-     <p>Once you're signed in to Expo Go, tap the button below and the app opens right up.</p>
-     <a class="btn" href="exp://u.expo.dev/db044b2e-c386-452a-8963-e25ec481977e?channel-name=preview&amp;runtime-version=1.0.0">🎣 Open Stringer Pro</a>
-   </div>
-
-   <p class="foot">Seeing "not viewable in Expo Go"? Your invite hasn't been accepted yet, or Expo Go is signed in with a different account than the one you were invited with.<br>Questions or feedback? <a href="mailto:stringerpro1@gmail.com">stringerpro1@gmail.com</a></p>
+   <p class="foot">Questions or feedback? <a href="mailto:stringerpro1@gmail.com">stringerpro1@gmail.com</a></p>
  </div>
+<script>
+ // Put the visitor's own phone first.
+ (function () {
+   var ua = navigator.userAgent || "";
+   var mine = /iPhone|iPad|iPod/i.test(ua) ? "iphone" : /Android/i.test(ua) ? "android" : null;
+   if (!mine) return;
+   var el = document.getElementById(mine);
+   el.classList.add("mine");
+   el.parentNode.insertBefore(el, document.getElementById("android"));
+ })();
+</script>
 <script data-goatcounter="https://stringerpro.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
