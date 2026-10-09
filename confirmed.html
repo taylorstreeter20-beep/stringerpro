@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email confirmed — Stringer Pro</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.stringerproapp.com/confirmed.html">
+<link rel="icon" href="assets/badge.png">
+<style>
+ :root{--parch:#F4EFE1;--green:#1C3A2E;--gold:#B7893A;--teal:#1E6E8C;--ink:#2b3a30;--mut:#6c6a5c;--brick:#9C3B2A;}
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{background:var(--parch);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+   min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+ .card{max-width:460px;width:100%;text-align:center;}
+ .badge{width:84px;height:84px;margin-bottom:8px}
+ h1{font-family:Georgia,"Times New Roman",serif;color:var(--green);font-size:30px;margin-bottom:6px}
+ .tag{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;margin-bottom:18px}
+ .panel{background:#fff;border:1px solid rgba(28,58,46,.12);border-radius:18px;padding:22px;text-align:left;margin-bottom:18px;}
+ .panel p{color:var(--mut);font-size:15px;line-height:1.55}
+ .panel p + p{margin-top:10px}
+ .panel b{color:var(--ink)}
+ .btn{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;
+   font-size:18px;padding:16px;border-radius:14px;margin-top:16px;box-shadow:0 6px 16px rgba(28,58,46,.22)}
+ .err h1{color:var(--brick)}
+ .foot{color:var(--mut);font-size:12px;margin-top:6px;line-height:1.6}
+ a{color:var(--teal)}
+ [hidden]{display:none !important}
+</style>
+</head>
+<body>
+ <div class="card">
+   <img class="badge" src="assets/badge.png" alt="The Midwestern Angler">
+
+   <div id="ok">
+     <h1>Your email is confirmed</h1>
+     <div class="tag">Stringer Pro &middot; The Midwestern Angler</div>
+     <div class="panel">
+       <p><b>You're all set.</b> Open Stringer Pro on your phone and sign in with the email and password you just signed up with.</p>
+       <a class="btn" href="stringer://">🎣 Open Stringer Pro</a>
+       <p style="margin-top:14px">Opened this on a computer? Just open Stringer Pro on your phone and sign in there.</p>
+     </div>
+   </div>
+
+   <div id="err" class="err" hidden>
+     <h1>This link has expired</h1>
+     <div class="tag">Stringer Pro &middot; The Midwestern Angler</div>
+     <div class="panel">
+       <p id="errText">Confirmation links only work once and expire after a while.</p>
+       <p>Open Stringer Pro and try signing in. If your email still needs confirming, create your account again with the same email to get a fresh link — or email us and we'll sort it out.</p>
+       <a class="btn" href="stringer://">🎣 Open Stringer Pro</a>
+     </div>
+   </div>
+
+   <p class="foot">Need help? <a href="mailto:stringerpro1@gmail.com">stringerpro1@gmail.com</a><br>
+   <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+ </div>
+<script>
+ // The confirmation link lands here with sign-in tokens (or an error) in the
+ // URL. Show the right message, then strip the tokens from the address bar so
+ // they don't sit in browser history.
+ (function () {
+   var raw = (location.hash || "").replace(/^#/, "") + "&" + (location.search || "").replace(/^\?/, "");
+   var params = {};
+   raw.split("&").forEach(function (pair) {
+     var i = pair.indexOf("=");
+     if (i > 0) params[decodeURIComponent(pair.slice(0, i))] = decodeURIComponent(pair.slice(i + 1).replace(/\+/g, " "));
+   });
+   if (params.error || params.error_code || params.error_description) {
+     document.getElementById("ok").hidden = true;
+     document.getElementById("err").hidden = false;
+     if (params.error_description) document.getElementById("errText").textContent = params.error_description + ".";
+   }
+   if (location.hash || location.search) {
+     try { history.replaceState(null, "", location.pathname); } catch (e) {}
+   }
+ })();
+</script>
+<script data-goatcounter="https://stringerpro.goatcounter.com/count" data-goatcounter-settings='{"path": "/confirmed.html"}' async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

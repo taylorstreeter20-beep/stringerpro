@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reset your password — Stringer Pro</title>
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<link rel="canonical" href="https://www.stringerproapp.com/reset.html">
+<link rel="icon" href="assets/badge.png">
+<script>
+ // Password-reset bounce. The reset email's link lands here carrying the
+ // one-time recovery tokens in the URL (#access_token=…&type=recovery, or
+ // ?code=…). They are handed to the app's deep link — stringer://reset —
+ // which installs the session and shows "set a new password". Capture them
+ // first and strip them from the address bar, so they never sit in browser
+ // history or reach the page counter. The redirect itself runs at the end of
+ // <body>, after the fallback instructions have rendered — a browser that
+ // can't open the app then still shows them.
+ (function () {
+   window.__stringerReset = "stringer://reset" + (location.search || "") + (location.hash || "");
+   window.__stringerResetHasTokens = !!(location.search || location.hash);
+   if (location.search || location.hash) {
+     try { history.replaceState(null, "", location.pathname); } catch (e) {}
+   }
+ })();
+</script>
+<style>
+ :root{--parch:#F4EFE1;--green:#1C3A2E;--gold:#B7893A;--teal:#1E6E8C;--ink:#2b3a30;--mut:#6c6a5c;}
+ *{box-sizing:border-box;margin:0;padding:0}
+ body{background:var(--parch);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+   min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;}
+ .card{max-width:460px;width:100%;text-align:center;}
+ .badge{width:84px;height:84px;margin-bottom:8px}
+ h1{font-family:Georgia,"Times New Roman",serif;color:var(--green);font-size:30px;margin-bottom:6px}
+ .tag{color:var(--gold);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;font-size:12px;margin-bottom:18px}
+ .panel{background:#fff;border:1px solid rgba(28,58,46,.12);border-radius:18px;padding:22px;text-align:left;margin-bottom:18px;}
+ .panel p,.panel ol{color:var(--mut);font-size:15px;line-height:1.55}
+ .panel p + p,.panel p + ol{margin-top:10px}
+ .panel ol{margin-left:20px}
+ .panel li + li{margin-top:4px}
+ .panel b{color:var(--ink)}
+ .btn{display:block;text-align:center;background:var(--green);color:#fff;text-decoration:none;font-weight:700;
+   font-size:18px;padding:16px;border-radius:14px;margin-top:16px;box-shadow:0 6px 16px rgba(28,58,46,.22)}
+ .foot{color:var(--mut);font-size:12px;margin-top:6px;line-height:1.6}
+ a{color:var(--teal)}
+</style>
+</head>
+<body>
+ <div class="card">
+   <img class="badge" src="assets/badge.png" alt="The Midwestern Angler">
+   <h1>Reset your password</h1>
+   <div class="tag">Stringer Pro &middot; The Midwestern Angler</div>
+
+   <div class="panel">
+     <p id="lead"><b>Opening Stringer Pro…</b> The app will ask you to choose a new password.</p>
+     <a class="btn" id="open" href="stringer://reset">🎣 Open Stringer Pro</a>
+     <p style="margin-top:16px">If the app didn't open:</p>
+     <ol>
+       <li>Open this email link <b>on the iPhone or Android phone</b> that has Stringer Pro installed.</li>
+       <li>Tap <b>Open Stringer Pro</b> above, and allow it if your browser asks.</li>
+       <li>Still nothing? Reset links work once and expire after an hour — in the app, tap <b>Forgot your password?</b> on the sign-in screen to get a new one.</li>
+     </ol>
+   </div>
+
+   <p class="foot">Need help? <a href="mailto:stringerpro1@gmail.com">stringerpro1@gmail.com</a><br>
+   <a href="privacy.html">Privacy</a> &middot; <a href="terms.html">Terms</a></p>
+ </div>
+<script>
+ // Point the fallback button at the same deep link (with the tokens), then
+ // open the app right away.
+ (function () {
+   var target = window.__stringerReset || "stringer://reset";
+   document.getElementById("open").href = target;
+   if (!window.__stringerResetHasTokens) {
+     document.getElementById("lead").innerHTML =
+       "<b>This page needs the link from your reset email.</b> Open the newest password-reset email from Stringer Pro on your phone and tap its link.";
+   }
+   setTimeout(function () { location.replace(target); }, 0);
+ })();
+</script>
+<script data-goatcounter="https://stringerpro.goatcounter.com/count" data-goatcounter-settings='{"path": "/reset.html"}' async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
